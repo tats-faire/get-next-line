@@ -88,7 +88,7 @@ char	*get_next_line(int fd)
 	static char	*stack[4096];
 	char		*result;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd >= 4096 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		if (stack[fd])
 		{
